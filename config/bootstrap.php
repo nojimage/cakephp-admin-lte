@@ -3,8 +3,6 @@
 use Cake\Core\Configure;
 
 Configure::write('AdminLTE.formOptions', [
-    'class' => 'box box-primary',
-    'errorClass' => 'form-error',
     'templates' => [
         'error' => '<p class="help-block error-message text-red">{{content}}</p>',
         'formGroup' => '{{label}}<div>{{input}}</div>',

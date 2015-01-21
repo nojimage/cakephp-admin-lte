@@ -1,5 +1,5 @@
 <?php
-$class = 'message';
+$class = 'alert';
 if (!empty($params['class'])) {
 	$class .= ' ' . $params['class'];
 }
