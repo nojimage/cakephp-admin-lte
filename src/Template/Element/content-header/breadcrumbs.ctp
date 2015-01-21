@@ -1,4 +1,5 @@
 <?php
+
 /**
  * AdminLTE Theme for CakePHP
  *
@@ -26,8 +27,8 @@ use Cake\Core\Configure;
 use Cake\Routing\Router;
 
 /* @var $this \Cake\View\View  */
-?>
-<ol class="breadcrumb">
-  <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-  <li class="active">Dashboard</li>
-</ol>
+echo $this->Html->getCrumbList([
+    'class' => 'breadcrumb',
+    'lastClass' => 'active',
+    'escape' => false,
+    ], __('<i class="fa fa-dashboard"></i> Home'));
