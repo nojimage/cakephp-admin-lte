@@ -56,8 +56,8 @@ class OverrideView extends View
                 }, App::path('Template')), function ($path) {
                 return is_dir($path);
             });
+            $paths = array_merge($localThemePaths, $paths);
         }
-        $paths = array_merge($localThemePaths, $paths);
 
         return $this->_paths = $paths;
     }
