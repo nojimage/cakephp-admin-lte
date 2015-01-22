@@ -1,16 +1,19 @@
 <%
 /**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * AdminLTE Theme for CakePHP
+ *
+ * Copyright 2015, ELASTIC Consultants Inc. http://elasticconsultants.com/
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @since         0.1.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @version    1.0
+ * @author     nojimage <nojima at elasticconsultants.com>
+ * @copyright  2015 ELASTIC Consultants Inc.
+ * @license    http://www.opensource.org/licenses/mit-license.php The MIT License
+ * @link       http://elasticconsultants.com
+ * @since      File available since Release 1.0
+ * @modifiedby nojimage <nojima at elasticconsultants.com>
  */
 use Cake\Utility\Inflector;
 

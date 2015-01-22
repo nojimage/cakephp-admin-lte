@@ -65,7 +65,7 @@ return $schema->columnType($field) !== 'binary';
           }
           continue;
           }
-          if (!in_array($field, ['created', 'modified', 'updated', 'created_at', 'updated_at'])) {
+          if (!in_array($field, ['created', 'modified', 'updated', 'created_at', 'modified_at', 'updated_at'])) {
           %>
               echo $this->Form->input('<%= $field %>', ['class' => 'form-control', 'label' => ['class' => 'control-label']]);
           <%
@@ -89,6 +89,8 @@ return $schema->columnType($field) !== 'binary';
         <?= $this->Form->end() ?>
       </div>
     </div>
+  </section>
+  <aside>
     <div class="actions col-md-4">
       <div class="box box-solid">
         <div class="box-header">
@@ -96,7 +98,7 @@ return $schema->columnType($field) !== 'binary';
         </div><!-- /.box-header -->
         <div class="box-body">
           <nav>
-          <ul class="side-nav">
+          <ul class="nav nav-pills nav-stacked">
             <li><?= $this->Html->link(__('List <%= $pluralHumanName %>'), ['action' => 'index']) ?></li>
           <%
           $done = [];
@@ -118,5 +120,5 @@ return $schema->columnType($field) !== 'binary';
         </div>
       </div>
     </div>
-  </section>
+  </aside>
 </div>
