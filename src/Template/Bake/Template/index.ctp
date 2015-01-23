@@ -76,7 +76,7 @@ $limits = [10, 25, 50, 100];
           </div>
           <?= $this->Form->end(); ?>
 
-          <table cellpadding="0" cellspacing="0" class="<%= $pluralVar %> table table-hover">
+          <table cellpadding="0" cellspacing="0" class="<%= $pluralVar %> table table-hover table-responsive">
             <thead>
               <tr>
                 <% foreach ($fields as $field): %>
