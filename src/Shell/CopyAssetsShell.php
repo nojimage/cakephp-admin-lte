@@ -33,10 +33,77 @@ class CopyAssetsShell extends Shell
 
     public function main()
     {
+        static::copyAdminLTEAssetsToWebroot($this);
+        static::copyBootstrapAssetsToWebroot($this);
+        static::copyPluginsAssetsToWebroot($this);
+        static::copyBuildAssetsToWebroot($this);
+    }
+
+    /**
+     * Copy AdminLTE assets to webroot
+     *
+     * @param \Cake\Console\ConsoleInput $io
+     * @param string $webroot
+     */
+    public static function copyAdminLTEAssetsToWebroot($io, $webroot = WWW_ROOT)
+    {
         $pluginRoot = dirname(dirname(__DIR__));
-        $isCopyToWebroot = $this->in('Copy AdminLTE\'s assets to webroot ?', ['Y', 'n'], 'Y');
-        if (in_array($isCopyToWebroot, ['Y', 'y'])) {
-            static::copyToWebroot(WWW_ROOT, $pluginRoot . '/bower_components/admin-lte', $this->io());
+        $assetsDir = $pluginRoot . '/bower_components/admin-lte/dist';
+        $confirm = static::ioAsk($io, 'Copy AdminLTE assets to webroot ?');
+
+        if (in_array($confirm, ['Y', 'y'])) {
+            static::copyToWebroot($webroot, $assetsDir, $io);
+        }
+    }
+
+    /**
+     * Copy Bootstrap assets to webroot
+     *
+     * @param \Cake\Console\ConsoleInput $io
+     * @param string $webroot
+     */
+    public static function copyBootstrapAssetsToWebroot($io, $webroot = WWW_ROOT)
+    {
+        $pluginRoot = dirname(dirname(__DIR__));
+        $assetsDir = $pluginRoot . '/bower_components/admin-lte/bootstrap';
+        $confirm = static::ioAsk($io, 'Copy Bootstrap assets to webroot ?');
+
+        if (in_array($confirm, ['Y', 'y'])) {
+            static::copyToWebroot($webroot, $assetsDir, $io);
+        }
+    }
+
+    /**
+     * Copy plugins assets to webroot
+     *
+     * @param \Cake\Console\ConsoleInput $io
+     * @param string $webroot
+     */
+    public static function copyPluginsAssetsToWebroot($io, $webroot = WWW_ROOT)
+    {
+        $pluginRoot = dirname(dirname(__DIR__));
+        $assetsDir = $pluginRoot . '/bower_components/admin-lte';
+        $confirm = static::ioAsk($io, 'Copy AdminLTE plugin assets to webroot ?');
+
+        if (in_array($confirm, ['Y', 'y'])) {
+            static::copyToWebroot($webroot, $assetsDir, $io, ['plugins']);
+        }
+    }
+
+    /**
+     * Copy build assets to webroot
+     *
+     * @param \Cake\Console\ConsoleInput $io
+     * @param string $webroot
+     */
+    public static function copyBuildAssetsToWebroot($io, $webroot = WWW_ROOT)
+    {
+        $pluginRoot = dirname(dirname(__DIR__));
+        $assetsDir = $pluginRoot . '/bower_components/admin-lte';
+        $confirm = static::ioAsk($io, 'Copy AdminLTE build assets (less files) to webroot ?');
+
+        if (in_array($confirm, ['Y', 'y'])) {
+            static::copyToWebroot($webroot, $assetsDir, $io, ['build']);
         }
     }
 
@@ -46,12 +113,13 @@ class CopyAssetsShell extends Shell
      * @param string $webrootDir
      * @param string $assetsDir
      * @param mixed $io
+     * @param array $subDirectories
      */
-    public static function copyToWebroot($webrootDir, $assetsDir, $io)
+    protected static function copyToWebroot($webrootDir, $assetsDir, $io, $subDirectories = ['css', 'img', 'js', 'fonts'])
     {
         static::checkWebroot($webrootDir);
         $folder = new Folder();
-        foreach (['css', 'fonts', 'img', 'js', 'less'] as $subdir) {
+        foreach ($subDirectories as $subdir) {
             $success = $folder->copy([
                 'from' => $assetsDir . '/' . $subdir,
                 'to' => $webrootDir . '/' . $subdir,
@@ -90,6 +158,37 @@ class CopyAssetsShell extends Shell
         } elseif (method_exists($io, 'out')) {
             $io->out($message);
         }
+    }
+
+    /**
+     *
+     * @param object $io
+     * @param string $message
+     * @return mixed
+     */
+    protected static function ioAsk($io, $message)
+    {
+        if (method_exists($io, 'in')) {
+            return $io->in($message, ['Y', 'n'], 'Y');
+        } elseif (method_exists($io, 'askAndValidate')) {
+            $message = sprintf('<info>%s (Default to Y)</info> [<comment>Y,n</comment>]? ', $message);
+            return $io->askAndValidate($message, static::getYesNoValidator(), false, 'Y');
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return callable
+     */
+    protected static function getYesNoValidator()
+    {
+        return (function ($arg) {
+            if (in_array($arg, ['Y', 'y', 'N', 'n'])) {
+                return $arg;
+            }
+            throw new \InvalidArgumentException('This is not a valid answer. Please choose Y or n.');
+        });
     }
 
 }

@@ -58,17 +58,10 @@ class Installer
                 $webroot = static::askWebroot($io);
             }
 
-            $validator = (function ($arg) {
-                if (in_array($arg, ['Y', 'y', 'N', 'n'])) {
-                    return $arg;
-                }
-                throw new Exception('This is not a valid answer. Please choose Y or n.');
-            });
-            $isCopyToWebroot = $io->askAndValidate('<info>Copy AdminLTE\'s assets to webroot ? (Default to Y)</info> [<comment>Y,n</comment>]? ', $validator, false, 'Y');
-
-            if (in_array($isCopyToWebroot, ['Y', 'y'])) {
-                CopyAssetsShell::copyToWebroot($webroot, $pluginRoot . '/bower_components/admin-lte', $io);
-            }
+            CopyAssetsShell::copyAdminLTEAssetsToWebroot($io, $webroot);
+            CopyAssetsShell::copyBootstrapAssetsToWebroot($io, $webroot);
+            CopyAssetsShell::copyPluginsAssetsToWebroot($io, $webroot);
+            CopyAssetsShell::copyBuildAssetsToWebroot($io, $webroot);
         }
     }
 
