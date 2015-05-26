@@ -32,7 +32,7 @@ echo $this->fetch('header');
   echo $this->fetch('sidebar');
   ?>
 
-  <aside class="right-side">
+  <aside class="content-wrapper">
     <?php
     if (!$this->exists('content-header') && $this->elementExists('content-header')) {
         $this->append('content-header', $this->element('content-header'));

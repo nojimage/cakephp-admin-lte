@@ -16,6 +16,8 @@
  * @modifiedby nojimage <nojima at elasticconsultants.com>
  */
 /* @var $this \Cake\View\View  */
+$skin = $this->exists('skin') ? $this->fetch('skin') : 'skin-blue';
+$bodyClass = $this->exists('body-class') ? $this->fetch('body-class') : $skin;
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,17 +27,18 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <?=
     $this->Html->css([
-        '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css',
-        '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css',
-        '//code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css',
-        'AdminLTE',
+        '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css',
+        '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css',
+        '//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',
+        './AdminLTE.min',
+        './skins/' . $skin . '.min.css',
     ]);
     ?>
     <!--[if lt IE 9]>
     <?=
     $this->Html->script([
-        'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js',
-        'https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js',
+        'https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js',
+        'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js',
     ]);
     ?>
     <![endif]-->
@@ -43,14 +46,14 @@
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
   </head>
-  <body class="<?= ($this->exists('body-class')) ? $this->fetch('body-class') : 'skin-blue' ?>">
+  <body class="<?= $bodyClass ?>">
     <?php $this->assign('body', $this->fetch('content')); ?>
     <?= $this->fetch('body'); ?>
     <?=
     $this->Html->script([
-        '//code.jquery.com/jquery-1.11.1.min.js',
-        'bootstrap.min.js',
-        'AdminLTE/app.js'
+        '//code.jquery.com/jquery-1.11.3.min.js',
+        '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js',
+        'app.min.js'
     ]);
     ?>
     <?= $this->fetch('script') ?>

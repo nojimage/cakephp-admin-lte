@@ -27,18 +27,18 @@ use Cake\Core\Configure;
 
 /* @var $this \Cake\View\View  */
 ?>
-<header class="header">
+<header class="main-header">
   <?= $this->Html->link(Configure::read('App.name'), '/', ['class' => 'logo']); ?>
   <?php /* Header Navbar: style can be found in header.less  */ ?>
   <nav class="navbar navbar-static-top" role="navigation">
     <?php /* Sidebar toggle button  */ ?>
-    <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
       <span class="sr-only"><?= __d('AdminLTE', 'Toggle navigation'); ?></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </a>
-    <div class="navbar-right">
+    <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
         <?php /* Messages: style can be found in dropdown.less */ ?>
         <?= isset($messages) ? $this->element('header/messages') : ''; ?>

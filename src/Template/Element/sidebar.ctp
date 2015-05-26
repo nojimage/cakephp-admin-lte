@@ -17,7 +17,7 @@
  */
 /* @var $this \Cake\View\View  */
 ?>
-<aside class="left-side sidebar-offcanvas">
+<aside class="main-sidebar">
   <!-- Sidebar user panel -->
   <div class="user-panel">
     <div class="pull-left image">
