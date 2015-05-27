@@ -1,5 +1,5 @@
 <?php
-$class = 'callout callout-info alert-dismissable';
+$class = 'alert alert-info alert-dismissable';
 if (!empty($params['class'])) {
     $class .= ' ' . $params['class'];
 }
