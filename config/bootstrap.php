@@ -4,6 +4,8 @@ use Cake\Core\Configure;
 
 Configure::write('AdminLTE.formOptions', [
     'templates' => [
+        'checkbox' => '<input type="checkbox" name="{{name}}" value="{{value}}"{{attrs}}> ',
+        'radio' => '<input type="radio" name="{{name}}" value="{{value}}"{{attrs}}> ',
         'error' => '<p class="help-block error-message text-red">{{content}}</p>',
         'formGroup' => '{{label}}<div>{{input}}</div>',
         'input' => '<input type="{{type}}" name="{{name}}"{{attrs}}>',
@@ -11,6 +13,14 @@ Configure::write('AdminLTE.formOptions', [
         'inputContainerError' => '<div class="form-group {{type}}{{required}} has-error">{{content}}{{error}}</div>',
     ],
 ]);
+
+Configure::write('AdminLTE.iCheckFormOptions', [
+    'templates' => [
+        'inputContainer' => '<div class="form-group icheck {{type}}{{required}}">{{content}}</div>',
+        'inputContainerError' => '<div class="form-group icheck {{type}}{{required}} has-error">{{content}}{{error}}</div>',
+    ],
+]);
+
 Configure::write('AdminLTE.searchFormOptions', [
     'class' => 'form-inline',
     'type' => 'get',
