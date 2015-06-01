@@ -40,9 +40,9 @@ Configure::write('AdminLTE.formHorizontalOptions', [
         'checkbox' => '<input type="checkbox" name="{{name}}" value="{{value}}"{{attrs}}> ',
         'radio' => '<input type="radio" name="{{name}}" value="{{value}}"{{attrs}}> ',
         'error' => '<p class="help-block error-message text-red">{{content}}</p>',
-        'formGroup' => '{{label}}<div class="col-sm-9">{{input}}</div>',
+        'formGroup' => '{{label}}<div class="col-sm-9">{{input}}{{error}}</div>',
         'input' => '<input type="{{type}}" name="{{name}}"{{attrs}}>',
         'inputContainer' => '<div class="form-group {{type}}{{required}}">{{content}}</div>',
-        'inputContainerError' => '<div class="form-group {{type}}{{required}} has-error">{{content}}{{error}}</div>',
+        'inputContainerError' => '<div class="form-group {{type}}{{required}} has-error">{{content}}</div>',
     ],
 ]);
