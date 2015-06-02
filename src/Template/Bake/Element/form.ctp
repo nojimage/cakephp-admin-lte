@@ -84,7 +84,7 @@ return $schema->columnType($field) !== 'binary';
         </div><!-- /.box-body -->
 
         <div class="box-footer">
-          <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+          <?= $this->Form->button(__('Save'), ['class' => 'btn btn-primary']) ?>
         </div>
         <?= $this->Form->end() ?>
       </div>
