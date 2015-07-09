@@ -37,7 +37,7 @@ return $schema->columnType($field) !== 'binary';
             [
                 'class' => 'btn btn-sm btn-danger',
                 'escape' => false,
-                'confirm' => __('Are you sure you want to delete # {0}?', $<%= $singularVar %>-><%= $primaryKey[0] %>)
+                'confirm' => __('Are you sure you want to delete #{0}?', $<%= $singularVar %>-><%= $primaryKey[0] %>)
             ]
             )
             ?>

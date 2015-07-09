@@ -56,9 +56,8 @@ $limits = [10, 25, 50, 100];
             <div class="col-sm-6">
               <?=
               $this->Form->input('query', [
-                  'class' => 'form-control pull-right',
-                  'style' => 'width: 150px;',
-                  'placeholder' => __('Search')
+                  'prepend' => '<button class="btn btn-default"><i class="fa fa-search"></i></button>',
+                  'placeholder' => __('Search'),
               ]);
               ?>
             </div>
@@ -123,7 +122,7 @@ $limits = [10, 25, 50, 100];
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', <%= $pk %>], ['class' => 'btn btn-sm btn-default']) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', <%= $pk %>], [
                         'class' => 'btn btn-sm btn-danger',
-                        'confirm' => __('Are you sure you want to delete # {0}?', <%= $pk %>)
+                        'confirm' => __('Are you sure you want to delete #{0}?', <%= $pk %>)
                     ])
                     ?>
                 </td>

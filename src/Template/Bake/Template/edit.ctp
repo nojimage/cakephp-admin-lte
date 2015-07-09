@@ -25,12 +25,32 @@ use Cake\Utility\Inflector;
 use Cake\Core\Configure;
 
 /* @var $this \Cake\View\View */
-$this->assign('title', __('<%= $pluralHumanName %>'));
+
+$this->extend('form');
+
 $this->assign('subtitle', __('Edit <%= $singularHumanName %>'));
 $this->Html->addCrumb($this->Html->link(__('List <%= $pluralHumanName %>'), ['action' => 'index'], ['escape' => false]));
 $this->Html->addCrumb(__('<%= Inflector::humanize($action) %> <%= $singularHumanName %>'));
-
-$formOptions = Configure::read('AdminLTE.formOptions');
 ?>
-<%
-echo $this->element('form');
+<?php $this->start('box-header'); ?>
+<h3 class="box-title"><?= __('<%= Inflector::humanize($action) %> <%= $singularHumanName %>') ?></h3>
+<div class="box-tools pull-right">
+  <?=
+    $this->Form->postLink(
+        __('<i class="fa fa-trash-o"></i> Delete'), ['action' => 'delete', $<%= $singularVar %>-><%= $primaryKey[0] %>], [
+        'class' => 'btn btn-sm btn-danger',
+        'escape' => false,
+        'confirm' => __('Are you sure you want to delete #{0}?', $<%= $singularVar %>-><%= $primaryKey[0] %>)
+        ]
+    )
+  ?>
+</div>
+<?php $this->end(); ?>
+
+<?php $this->start('side-actions'); ?>
+<nav>
+  <ul class="nav nav-pills nav-stacked">
+    <li><?= $this->Html->link(__('List <%= $pluralHumanName %>'), ['action' => 'index']) ?></li>
+  </ul>
+</nav>
+<?php $this->end(); ?>

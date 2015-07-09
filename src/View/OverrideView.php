@@ -3,14 +3,14 @@
 /**
  * AdminLTE Theme for CakePHP
  *
- * Copyright 2014, ELASTIC Consultants Inc. http://elasticconsultants.com/
+ * Copyright 2015, ELASTIC Consultants Inc. http://elasticconsultants.com/
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
  * @version    1.0
  * @author     nojimage <nojima at elasticconsultants.com>
- * @copyright  2014 ELASTIC Consultants Inc.
+ * @copyright  2015 ELASTIC Consultants Inc.
  * @license    http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link       http://elasticconsultants.com
  * @since      File available since Release 1.0
@@ -27,6 +27,16 @@ use Cake\Core\App;
  */
 class OverrideView extends View
 {
+
+    public $layout = 'AdminLTE.default';
+
+    public function initialize()
+    {
+        $this->loadHelper('Html', ['className' => 'BootstrapUI.Html']);
+        $this->loadHelper('Form', ['className' => 'BootstrapUI.Form']);
+        $this->loadHelper('Flash', ['className' => 'BootstrapUI.Flash']);
+        $this->loadHelper('Paginator', ['className' => 'BootstrapUI.Paginator']);
+    }
 
     /**
      *
