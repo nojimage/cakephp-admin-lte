@@ -1,0 +1,20 @@
+{
+  "name": "cakephp-admin-lte",
+  "authors": [
+    "nojimage <nojimage@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "AdminLTE": "admin-lte#~2.3"
+  }
+}

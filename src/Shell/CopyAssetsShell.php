@@ -19,11 +19,12 @@
 
 namespace AdminLTE\Shell;
 
+use Cake\Console\ConsoleInput;
 use Cake\Console\Shell;
 use Cake\Filesystem\Folder;
-use Cake\Console\ConsoleIo;
-use Composer\IO\IOInterface;
 use Exception;
+use InvalidArgumentException;
+use const WWW_ROOT;
 
 /**
  * CopyAssetsShell
@@ -42,13 +43,13 @@ class CopyAssetsShell extends Shell
     /**
      * Copy AdminLTE assets to webroot
      *
-     * @param \Cake\Console\ConsoleInput $io
+     * @param ConsoleInput $io
      * @param string $webroot
      */
     public static function copyAdminLTEAssetsToWebroot($io, $webroot = WWW_ROOT)
     {
         $pluginRoot = dirname(dirname(__DIR__));
-        $assetsDir = $pluginRoot . '/bower_components/admin-lte/dist';
+        $assetsDir = $pluginRoot . '/bower_components/AdminLTE/dist';
         $confirm = static::ioAsk($io, 'Copy AdminLTE assets to webroot ?');
 
         if (in_array($confirm, ['Y', 'y'])) {
@@ -59,13 +60,13 @@ class CopyAssetsShell extends Shell
     /**
      * Copy Bootstrap assets to webroot
      *
-     * @param \Cake\Console\ConsoleInput $io
+     * @param ConsoleInput $io
      * @param string $webroot
      */
     public static function copyBootstrapAssetsToWebroot($io, $webroot = WWW_ROOT)
     {
         $pluginRoot = dirname(dirname(__DIR__));
-        $assetsDir = $pluginRoot . '/bower_components/admin-lte/bootstrap';
+        $assetsDir = $pluginRoot . '/bower_components/AdminLTE/bootstrap';
         $confirm = static::ioAsk($io, 'Copy Bootstrap assets to webroot ?');
 
         if (in_array($confirm, ['Y', 'y'])) {
@@ -76,13 +77,13 @@ class CopyAssetsShell extends Shell
     /**
      * Copy plugins assets to webroot
      *
-     * @param \Cake\Console\ConsoleInput $io
+     * @param ConsoleInput $io
      * @param string $webroot
      */
     public static function copyPluginsAssetsToWebroot($io, $webroot = WWW_ROOT)
     {
         $pluginRoot = dirname(dirname(__DIR__));
-        $assetsDir = $pluginRoot . '/bower_components/admin-lte';
+        $assetsDir = $pluginRoot . '/bower_components/AdminLTE';
         $confirm = static::ioAsk($io, 'Copy AdminLTE plugin assets to webroot ?');
 
         if (in_array($confirm, ['Y', 'y'])) {
@@ -93,13 +94,13 @@ class CopyAssetsShell extends Shell
     /**
      * Copy build assets to webroot
      *
-     * @param \Cake\Console\ConsoleInput $io
+     * @param ConsoleInput $io
      * @param string $webroot
      */
     public static function copyBuildAssetsToWebroot($io, $webroot = WWW_ROOT)
     {
         $pluginRoot = dirname(dirname(__DIR__));
-        $assetsDir = $pluginRoot . '/bower_components/admin-lte';
+        $assetsDir = $pluginRoot . '/bower_components/AdminLTE';
         $confirm = static::ioAsk($io, 'Copy AdminLTE build assets (less files) to webroot ?');
 
         if (in_array($confirm, ['Y', 'y'])) {
@@ -187,7 +188,7 @@ class CopyAssetsShell extends Shell
             if (in_array($arg, ['Y', 'y', 'N', 'n'])) {
                 return $arg;
             }
-            throw new \InvalidArgumentException('This is not a valid answer. Please choose Y or n.');
+            throw new InvalidArgumentException('This is not a valid answer. Please choose Y or n.');
         });
     }
 
