@@ -1,5 +1,4 @@
 <?php
-
 /**
  * AdminLTE Theme for CakePHP
  *
@@ -33,7 +32,12 @@ class OverrideView extends View
     public function initialize()
     {
         $this->loadHelper('Html', ['className' => 'BootstrapUI.Html']);
-        $this->loadHelper('Form', ['className' => 'BootstrapUI.Form']);
+        $this->loadHelper('Form', [
+            'className' => 'BootstrapUI.Form',
+            'widgets' => [
+                'datetimepicker' => ['AdminLTE.DatetimePicker'],
+            ],
+        ]);
         $this->loadHelper('Flash', ['className' => 'BootstrapUI.Flash']);
         $this->loadHelper('Paginator', ['className' => 'BootstrapUI.Paginator']);
     }
@@ -71,5 +75,4 @@ class OverrideView extends View
 
         return $this->_paths = $paths;
     }
-
 }
