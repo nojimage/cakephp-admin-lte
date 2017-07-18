@@ -26,8 +26,6 @@ class DatetimePickerWidget extends BasicWidget implements WidgetInterface
             'class' => null,
             'prepend' => null,
         ];
-        $data['value'] = $data['val'];
-        unset($data['val']);
 
         $data['type'] = 'text';
         if (is_null($data['class'])) {
