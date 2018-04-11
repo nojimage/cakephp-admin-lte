@@ -27,8 +27,8 @@ $bodyClass = $this->exists('body-class') ? $this->fetch('body-class') : $skin;
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <?=
     $this->Html->css([
-        '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css',
-        '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css',
+        '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+        '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
         '//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',
         './AdminLTE.min',
         './skins/' . $skin . '.min.css',
@@ -52,7 +52,7 @@ $bodyClass = $this->exists('body-class') ? $this->fetch('body-class') : $skin;
     <?=
     $this->Html->script([
         '//code.jquery.com/jquery-1.11.3.min.js',
-        '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js',
+        '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js',
         'app.min.js'
     ]);
     ?>
