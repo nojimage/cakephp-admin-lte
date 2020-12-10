@@ -3,9 +3,14 @@
 use Cake\Core\Configure;
 use Cake\Core\Plugin;
 
+$errorReporting = error_reporting();
+if (version_compare(Configure::version(), '3.6.0', '>=')) {
+    error_reporting(E_ALL ^ E_USER_DEPRECATED);
+}
 if (!Plugin::loaded('BootstrapUI')) {
     Plugin::load('BootstrapUI');
 }
+error_reporting($errorReporting);
 
 Configure::write('AdminLTE.iCheckFormOptions', [
     'templates' => [
