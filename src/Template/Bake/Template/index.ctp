@@ -30,10 +30,10 @@ $fields = collection($fields)
  */
 use Cake\Core\Configure;
 
-/* @var $this \Cake\View\View */
+/* @var $this \AdminLTE\View\OverrideView */
 $this->assign('title', __('<%= $pluralHumanName %>'));
 $this->assign('subtitle', __('List <%= $pluralHumanName %>'));
-$this->Html->addCrumb(__('List <%= $pluralHumanName %>'));
+$this->Breadcrumbs->add(__('List <%= $pluralHumanName %>'), null, ['class' => 'active']);
 
 $formOptions = Configure::read('AdminLTE.formOptions');
 $searchFormOptions = Configure::read('AdminLTE.searchFormOptions');

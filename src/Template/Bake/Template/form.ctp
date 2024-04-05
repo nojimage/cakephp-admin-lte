@@ -25,11 +25,11 @@ return $schema->columnType($field) !== 'binary';
 <?php
 
 /**
- * 
+ *
  */
 use Cake\Core\Configure;
 
-/* @var $this \Cake\View\View */
+/* @var $this \AdminLTE\View\OverrideView */
 $this->assign('title', __('<%= $pluralHumanName %>'));
 ?>
 <div class="row">

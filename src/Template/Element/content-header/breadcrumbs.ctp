@@ -26,9 +26,13 @@
 use Cake\Core\Configure;
 use Cake\Routing\Router;
 
-/* @var $this \Cake\View\View  */
-echo $this->Html->getCrumbList([
+/**
+ * @var \AdminLTE\View\OverrideView $this
+ */
+
+$this->Breadcrumbs->prepend(__('<i class="fa fa-dashboard"></i> Home'));
+
+echo $this->Breadcrumbs->render([
     'class' => 'breadcrumb',
-    'lastClass' => 'active',
     'escape' => false,
-    ], __('<i class="fa fa-dashboard"></i> Home'));
+]);

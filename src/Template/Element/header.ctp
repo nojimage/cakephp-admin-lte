@@ -25,7 +25,7 @@
  */
 use Cake\Core\Configure;
 
-/* @var $this \Cake\View\View  */
+/* @var $this \AdminLTE\View\OverrideView */
 ?>
 <header class="main-header">
   <?= $this->Html->link(Configure::read('App.name'), '/', ['class' => 'logo']); ?>

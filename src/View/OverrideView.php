@@ -23,6 +23,12 @@ use Cake\Core\App;
 
 /**
  * Custom View class
+ *
+ * @property \BootstrapUI\View\Helper\HtmlHelper $Html
+ * @property \BootstrapUI\View\Helper\FormHelper $Form
+ * @property \BootstrapUI\View\Helper\FlashHelper $Flash
+ * @property \BootstrapUI\View\Helper\BreadcrumbsHelper $Breadcrumbs
+ * @property \BootstrapUI\View\Helper\PaginatorHelper $Paginator
  */
 class OverrideView extends View
 {
@@ -39,6 +45,7 @@ class OverrideView extends View
             ],
         ]);
         $this->loadHelper('Flash', ['className' => 'BootstrapUI.Flash']);
+        $this->loadHelper('Breadcrumbs', ['className' => 'BootstrapUI.Breadcrumbs']);
         $this->loadHelper('Paginator', ['className' => 'BootstrapUI.Paginator']);
     }
 

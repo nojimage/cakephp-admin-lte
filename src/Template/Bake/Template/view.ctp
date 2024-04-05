@@ -61,11 +61,12 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
 /**
  * View <%= $singularHumanName %>
  */
-/* @var $this \Cake\View\View */
+
+/* @var $this \AdminLTE\View\OverrideView */
 $this->assign('title', __('<%= $pluralHumanName %>'));
 $this->assign('subtitle', __('Detail of <%= $singularHumanName %>'));
-$this->Html->addCrumb($this->Html->link(__('List <%= $pluralHumanName %>'), ['action' => 'index'], ['escape' => false]));
-$this->Html->addCrumb(__('View <%= $singularHumanName %>'));
+$this->Breadcrumbs->add($this->Html->link(__('List <%= $pluralHumanName %>'), ['action' => 'index'], ['escape' => false]));
+$this->Breadcrumbs->add(__('View <%= $singularHumanName %>'), null, ['class' => 'active']);
 ?>
 <div class="row">
   <section>

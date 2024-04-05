@@ -5,21 +5,21 @@
     "keywords": [
         "cakephp", "bootstrap", "template", "theme"
     ],
-    "homepage": "http://elasticconsultants.com",
+    "homepage": "https://elasticconsultants.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Takashi Nojima",
-            "homepage": "http://php-tips.com"
+            "homepage": "https://php-tips.com"
         }
     ],
     "extra": {
         "installer-name": "AdminLTE"
     },
     "require": {
-        "php": ">=5.6",
+        "php": ">=7.2",
         "cakephp/plugin-installer": "*",
-        "cakephp/cakephp": "^3.4",
+        "cakephp/cakephp": "^3.6",
         "friendsofcake/bootstrap-ui": "^1.1"
     },
     "require-dev": {

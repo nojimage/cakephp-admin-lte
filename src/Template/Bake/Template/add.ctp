@@ -24,13 +24,13 @@ use Cake\Utility\Inflector;
  */
 use Cake\Core\Configure;
 
-/* @var $this \Cake\View\View */
+/* @var $this \AdminLTE\View\OverrideView */
 
 $this->extend('form');
 
 $this->assign('subtitle', __('Create new <%= $singularHumanName %>'));
-$this->Html->addCrumb($this->Html->link(__('List <%= $pluralHumanName %>'), ['action' => 'index'], ['escape' => false]));
-$this->Html->addCrumb(__('<%= Inflector::humanize($action) %> <%= $singularHumanName %>'));
+$this->Breadcrumbs->add($this->Html->link(__('List <%= $pluralHumanName %>'), ['action' => 'index'], ['escape' => false]));
+$this->Breadcrumbs->add(__('<%= Inflector::humanize($action) %> <%= $singularHumanName %>'), null, ['class' => 'active']);
 ?>
 <?php $this->start('box-header'); ?>
 <h3 class="box-title"><?= __('<%= Inflector::humanize($action) %> <%= $singularHumanName %>') ?></h3>

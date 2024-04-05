@@ -15,7 +15,7 @@
  * @since      File available since Release 1.0
  * @modifiedby nojimage <nojima at elasticconsultants.com>
  */
-/* @var $this \Cake\View\View  */
+/* @var $this \AdminLTE\View\OverrideView */
 ?>
 <section class="content-header">
   <h1>

@@ -15,7 +15,7 @@
  * @since      File available since Release 1.0
  * @modifiedby nojimage <nojima at elasticconsultants.com>
  */
-/* @var $this \Cake\View\View  */
+/* @var $this \AdminLTE\View\OverrideView */
 $skin = $this->exists('skin') ? $this->fetch('skin') : 'skin-blue';
 $bodyClass = $this->exists('body-class') ? $this->fetch('body-class') : $skin;
 ?>
